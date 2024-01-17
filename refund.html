@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Endless Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Endless Questionnaire Form</h2>
+        <form id="endlessForm">
+            <!-- Existing questions -->
+            <!-- <div class="question">
+                <label for="q1">Question 1:</label>
+                <input type="text" id="q1" name="q1">
+            </div> -->
+            <!-- Dynamic questions will be appended here -->
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('scroll', function() {
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                    addRandomQuestion();
+                }
+            });
+        });
+    
+        function addRandomQuestion() {
+            var form = document.getElementById('endlessForm');
+            var questionCount = form.getElementsByClassName('question').length;
+            var newQuestionNum = questionCount + 1;
+    
+            var newQuestionDiv = document.createElement('div');
+            newQuestionDiv.className = 'question';
+            var newLabel = document.createElement('label');
+            newLabel.setAttribute('for', 'q' + newQuestionNum);
+            newLabel.innerText = 'Random Question ' + newQuestionNum + ':';
+            var newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.id = 'q' + newQuestionNum;
+            newInput.name = 'q' + newQuestionNum;
+    
+            newQuestionDiv.appendChild(newLabel);
+            newQuestionDiv.appendChild(newInput);
+            form.insertBefore(newQuestionDiv, form.lastElementChild); // Insert before submit button
+        }
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+        addRandomQuestion();
+
+    </script>
+    
+    </body>
+    </html>
